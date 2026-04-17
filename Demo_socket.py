@@ -18,7 +18,12 @@ try:
                 #print("Trouvé")
                 positionNumeroSerie = ligne.find(' ') + 1
                 numeroSerie = ligne[positionNumeroSerie:-3]
+            if ligne.find("PAPP") != -1:
+                #print("Trouvé")
+                positionPuissanceApparente = ligne.find(' ') + 1
+                puissanceApparente = ligne[positionPuissanceApparente:-3]
         print(f"Numéro de série : {numeroSerie}")
+        print(f"Puissance apparente : {puissanceApparente}")
 except(socket.timeout, socket.error) as e:
     print(f"Erreur de réseau : {e}")
  
