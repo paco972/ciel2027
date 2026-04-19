@@ -22,8 +22,15 @@ try:
                 #print("Trouvé")
                 positionPuissanceApparente = ligne.find(' ') + 1
                 puissanceApparente = ligne[positionPuissanceApparente:-3]
+            if ligne.find("HCHC") != -1:
+                #print("Trouvé")
+                positionIndexHeuresCreuses = ligne.find(' ') + 1
+                indexHeuresCreuses = ligne[positionIndexHeuresCreuses:-3]
+
         print(f"Numéro de série : {numeroSerie}")
         print(f"Puissance apparente : {puissanceApparente}")
+        print(f"Index heures creuses : {indexHeuresCreuses}")
+
 except(socket.timeout, socket.error) as e:
     print(f"Erreur de réseau : {e}")
  
