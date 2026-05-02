@@ -75,6 +75,5 @@ sequenceDiagram
 ---
 
 ### Pourquoi ce choix ?
-*   **Focus unique :** En limitant le README à ce seul fichier, vous évitez de perdre les étudiants dans des dossiers superflus.
-*   **Historique lisible :** Les instructions de `commit` incitent les élèves à documenter *pourquoi* ils changent le code (ex: "Ajout du calcul de checksum").
+*   **Historique lisible :** Les instructions de `commit` incitent à documenter *pourquoi* on change le code (ex: "Ajout du calcul de checksum").
 *   **Visualisation immédiate :** Le diagramme Mermaid permet de faire le lien entre le code Python (`socket.connect`) et le concept théorique du "Three-way handshake".
