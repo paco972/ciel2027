@@ -1,4 +1,3 @@
-```markdown
 # BTS CIEL 2027 - Programmation Réseau (Sockets Python)
 
 Ce dépôt est dédié à l'étude et à l'évolution du script **`Demo_socket.py`**, utilisé pour comprendre les échanges de données en couche Transport (TCP/UDP).
