@@ -73,10 +73,6 @@ sequenceDiagram
 ```
 
 ---
-*Dernière modification : Mai 2026*
-```
-
----
 
 ### Pourquoi ce choix ?
 *   **Focus unique :** En limitant le README à ce seul fichier, vous évitez de perdre les étudiants dans des dossiers superflus.
