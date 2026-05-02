@@ -42,16 +42,10 @@ git push origin main
 
 Pour exécuter le script dans l'environnement de TP :
 
-1. **Lancer le serveur** (ou le simulateur) :
+1. **Lancer le client** dans un second terminal :
    
 ```bash
-   python3 Demo_socket.py --mode server
-   ```
-
-2. **Lancer le client** dans un second terminal :
-   
-```bash
-   python3 Demo_socket.py --mode client
+   python3 Demo_socket.py
    ```
 
 ---
