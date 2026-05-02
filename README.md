@@ -1,22 +1,85 @@
-# BTS CIEL 2027 - Ressources Pédagogiques
+```markdown
+# BTS CIEL 2027 - Programmation Réseau (Sockets Python)
 
-Ce dépôt contient l'ensemble des ressources, exercices et documentations pour la promotion **BTS CIEL** (Cybersécurité, Informatique et réseaux, Électronique) pour l'année 2027.
+Ce dépôt est dédié à l'étude et à l'évolution du script **`Demo_socket.py`**, utilisé pour comprendre les échanges de données en couche Transport (TCP/UDP).
 
-## 📋 Contenu du dépôt
+## 📂 Fichier principal : Demo_socket.py
 
-- `/TP` : Sujets de travaux pratiques et fichiers sources (Python, C++).
-- `/Cours` : Supports de cours au format Markdown.
-- `/Projets` : Documentation et suivi des projets de fin d'année.
-- `/Examens` : Banques de questions pour les évaluations (BTS).
+Le script `Demo_socket.py` sert de base pour l'apprentissage de la communication entre un client (ex: capteur, Raspberry Pi) et un serveur de supervision.
 
-## 🚀 Guide de démarrage rapide
+### Fonctionnalités implémentées :
+*   Initialisation de sockets TCP/IP.
+*   Gestion des flux de données (encodage/décodage UTF-8).
+*   Simulation d'acquisition de données (mesures de tension/température).
 
-### Prérequis
-- **VS Code** avec l'extension *Markdown Preview Enhanced*.
-- **Python 3.x** pour les scripts de simulation.
-- **Git** installé sur votre station de travail.
+---
 
-### Installation
-Pour récupérer le dépôt localement :
+## 🛠️ Cycle de développement (Workflow Git)
+
+À chaque modification du script (ajout de la gestion d'erreurs, boucles infinies, etc.), suivez cette procédure pour sauvegarder vos versions :
+
+### 1. Préparation (Stage)
+Après avoir modifié `Demo_socket.py`, ajoutez-le à l'index :
 ```bash
-git clone [https://github.com/paco972/ciel2027.git](https://github.com/paco972/ciel2027.git)
+git add Demo_socket.py
+```
+
+### 2. Validation (Commit)
+Enregistrez l'étape atteinte. Utilisez des messages clairs pour identifier l'évolution :
+```bash
+# Exemple pour l'ajout de la gestion d'exception
+git commit -m "Fix: Ajout du bloc try/except pour la connexion"
+```
+
+### 3. Mise à jour distante (Push)
+Envoyez vos modifications vers GitHub :
+```bash
+git push origin main
+```
+
+---
+
+## 🚀 Utilisation du script
+
+Pour exécuter le script dans l'environnement de TP :
+
+1. **Lancer le serveur** (ou le simulateur) :
+   
+```bash
+   python3 Demo_socket.py --mode server
+   ```
+
+2. **Lancer le client** dans un second terminal :
+   
+```bash
+   python3 Demo_socket.py --mode client
+   ```
+
+---
+
+## 📊 Architecture du flux de données
+
+Voici le cycle de vie d'une connexion dans `Demo_socket.py` :
+```mermaid
+sequenceDiagram
+    participant C as Client (TP CIEL)
+    participant S as Serveur (Supervision)
+    
+    Note over C,S: Initialisation Socket TCP
+    C->>S: socket.connect(IP, PORT)
+    S-->>C: Connexion acceptée
+    C->>S: Envoi données (ex: "23.5°C")
+    S-->>C: Acquittement (ACK)
+    C->>S: socket.close()
+```
+
+---
+*Dernière modification : Mai 2026*
+```
+
+---
+
+### Pourquoi ce choix ?
+*   **Focus unique :** En limitant le README à ce seul fichier, vous évitez de perdre les étudiants dans des dossiers superflus.
+*   **Historique lisible :** Les instructions de `commit` incitent les élèves à documenter *pourquoi* ils changent le code (ex: "Ajout du calcul de checksum").
+*   **Visualisation immédiate :** Le diagramme Mermaid permet de faire le lien entre le code Python (`socket.connect`) et le concept théorique du "Three-way handshake".
